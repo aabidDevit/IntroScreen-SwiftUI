@@ -10,7 +10,7 @@
 import SwiftUI
 
 @available(macOS 10.15, *)
-struct Intro: View {
+public struct Intro: View {
     
     @State private var selectedTab = 0
     @State private var selectedTabStr = "0"
@@ -21,7 +21,7 @@ struct Intro: View {
     
     let introDataArray: [IntroData]
     
-    var body: some View {
+    public var body: some View {
             VStack(spacing: 0) {
                 HStack {
                     Group {
