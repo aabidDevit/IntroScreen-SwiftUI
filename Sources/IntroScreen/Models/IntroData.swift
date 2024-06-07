@@ -7,10 +7,10 @@
 
 import Foundation
 public struct IntroData: Identifiable {
-  public var id = UUID()
-  var title: String
-  var desc: String
-  var image: String
+    public var id: UUID
+    var title: String
+    var desc: String
+    var image: String
     
     public init(id: UUID = UUID(), title: String, desc: String, image: String) {
         self.id = id
