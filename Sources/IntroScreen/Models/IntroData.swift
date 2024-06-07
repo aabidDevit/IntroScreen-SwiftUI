@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct IntroData: Identifiable {
-  var id = UUID()
+public struct IntroData: Identifiable {
+  public var id = UUID()
   var title: String
   var desc: String
   var image: String

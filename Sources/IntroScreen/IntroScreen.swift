@@ -19,7 +19,17 @@ public struct Intro: View {
     var getStartedButtonText: String = "Get Started"
     var skipButtonText: String = "Skip"
     
-    let introDataArray: [IntroData]
+    var introDataArray: [IntroData]
+    
+    public init(selectedTab: Int = 0, selectedTabStr: String = "0", prevButtonText: String, nextButtonText: String, getStartedButtonText: String, skipButtonText: String, introDataArray: [IntroData]) {
+        self.selectedTab = selectedTab
+        self.selectedTabStr = selectedTabStr
+        self.prevButtonText = prevButtonText
+        self.nextButtonText = nextButtonText
+        self.getStartedButtonText = getStartedButtonText
+        self.skipButtonText = skipButtonText
+        self.introDataArray = introDataArray
+    }
     
     public var body: some View {
             VStack(spacing: 0) {
