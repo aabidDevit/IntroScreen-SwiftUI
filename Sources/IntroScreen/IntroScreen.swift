@@ -13,23 +13,19 @@ import SwiftUI
 public struct Intro: View {
     
     @State private var selectedTab = 0
-    var prevButtonText: String
-    var nextButtonText: String
-    var getStartedButtonText: String
-    var skipButtonText: String
     var introDataArray: [IntroData]
-    var prevButton: Button<Text>
-    var nextButton: Button<Text>
+    var prevButtonLabel: Text
+    var nextButtonLabel: Text
+    var skipButtonLabel: Text
+    var getStartedButtonLabel: Text
     
-    public init(selectedTab: Int = 0, prevButtonText: String = "Prev", nextButtonText: String = "Next", getStartedButtonText: String = "Get Started", skipButtonText: String = "Skip", introDataArray: [IntroData], prevButton: Button<Text>, nextButton: Button<Text>) {
+    public init(selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text) {
         self.selectedTab = selectedTab
-        self.prevButtonText = prevButtonText
-        self.nextButtonText = nextButtonText
-        self.getStartedButtonText = getStartedButtonText
-        self.skipButtonText = skipButtonText
+        self.getStartedButtonLabel = getStartedLabel
         self.introDataArray = introDataArray
-        self.prevButton = prevButton
-        self.nextButton = nextButton
+        self.prevButtonLabel = prevButtonLabel
+        self.nextButtonLabel = nextButtonLabel
+        self.skipButtonLabel = skipButtonLabel
     }
     
     public var body: some View {
@@ -48,7 +44,7 @@ public struct Intro: View {
                 Button(action: {
                     
                 }, label: {
-                    Text(skipButtonText)
+                   skipButtonLabel
                 })
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing)
@@ -73,7 +69,7 @@ public struct Intro: View {
                         Button(action: {
                             selectedTab -= 1
                         }, label: {
-                            Text(prevButtonText)
+                           prevButtonLabel
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
@@ -89,7 +85,7 @@ public struct Intro: View {
                             
                         }
                     }, label: {
-                        selectedTab == introDataArray.count - 1 ? Text(getStartedButtonText) : Text(nextButtonText)
+                        selectedTab == introDataArray.count - 1 ? getStartedButtonLabel : nextButtonLabel
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)
