@@ -21,8 +21,9 @@ public struct Intro: View {
     var titleLabel: Text
     var descriptionLabel: Text
     var hidePageNumberLabel: Bool
+    var introImage: Image
     
-    public init(titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
+    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
         self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
@@ -32,6 +33,7 @@ public struct Intro: View {
         self.nextButtonLabel = nextButtonLabel
         self.skipButtonLabel = skipButtonLabel
         self.hidePageNumberLabel = hidePageNumberLabel
+        self.introImage = introImage
     }
     
     public var body: some View {
@@ -64,7 +66,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: titleLabel, descText: descriptionLabel)
+                        IntroContentView(data: item, image: introImage, titleText: titleLabel, descText: descriptionLabel)
                             .tag(index)
                     }
                 }
