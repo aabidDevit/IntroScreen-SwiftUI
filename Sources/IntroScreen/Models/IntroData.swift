@@ -8,9 +8,9 @@
 import Foundation
 public struct IntroData: Identifiable {
     public var id: UUID
-    var titleText: String
-    var desc: String
-    var imageAssetName: String
+    public var titleText: String
+    public var desc: String
+    public var imageAssetName: String
     
     public init(id: UUID = UUID(), title: String, desc: String, image: String) {
         self.id = id
