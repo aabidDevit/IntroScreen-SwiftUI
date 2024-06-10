@@ -13,22 +13,23 @@ import SwiftUI
 public struct Intro: View {
     
     @State private var selectedTab = 0
-    @State private var selectedTabStr = "0"
-    var prevButtonText: String = "Prev"
-    var nextButtonText: String = "Next"
-    var getStartedButtonText: String = "Get Started"
-    var skipButtonText: String = "Skip"
-    
+    var prevButtonText: String
+    var nextButtonText: String
+    var getStartedButtonText: String
+    var skipButtonText: String
     var introDataArray: [IntroData]
+    var prevButton: Button<Text>
+    var nextButton: Button<Text>
     
-    public init(selectedTab: Int = 0, selectedTabStr: String = "0", prevButtonText: String, nextButtonText: String, getStartedButtonText: String, skipButtonText: String, introDataArray: [IntroData]) {
+    public init(selectedTab: Int = 0, prevButtonText: String = "Prev", nextButtonText: String = "Next", getStartedButtonText: String = "Get Started", skipButtonText: String = "Skip", introDataArray: [IntroData], prevButton: Button<Text>, nextButton: Button<Text>) {
         self.selectedTab = selectedTab
-        self.selectedTabStr = selectedTabStr
         self.prevButtonText = prevButtonText
         self.nextButtonText = nextButtonText
         self.getStartedButtonText = getStartedButtonText
         self.skipButtonText = skipButtonText
         self.introDataArray = introDataArray
+        self.prevButton = prevButton
+        self.nextButton = nextButton
     }
     
     public var body: some View {
@@ -71,7 +72,6 @@ public struct Intro: View {
                         if selectedTab > 0 {
                             Button(action: {
                                 selectedTab -= 1
-                                selectedTabStr = String(selectedTab)
                             }, label: {
                                 Text(prevButtonText)
                             })
@@ -85,7 +85,6 @@ public struct Intro: View {
                         Button(action: {
                             if selectedTab < introDataArray.count - 1 {
                                 selectedTab += 1
-                                selectedTabStr = String(selectedTab)
                             } else {
                                
                             }
@@ -102,7 +101,3 @@ public struct Intro: View {
             }
     }
 }
-
-//#Preview {
-//    Intro(introDataArray: [IntroData(title: "aaa", desc: "asdasd", image: ""), IntroData(title: "test", desc: "adsads", image: "")])
-//}
