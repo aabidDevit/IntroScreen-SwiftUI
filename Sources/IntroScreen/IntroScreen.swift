@@ -73,8 +73,6 @@ public struct Intro: View {
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
-                        
-                        .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 196 / 255, green: 196 / 255, blue: 196 / 255, opacity: 1))
                     }
                     
                     
@@ -89,8 +87,6 @@ public struct Intro: View {
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)
-                    
-                    .foregroundStyle(Color(.pink))
                 }
                 .padding(.bottom, 15)
             }
