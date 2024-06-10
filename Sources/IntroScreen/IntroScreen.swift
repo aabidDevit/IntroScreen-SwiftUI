@@ -18,13 +18,13 @@ public struct Intro: View {
     var nextButtonLabel: Text
     var skipButtonLabel: Text
     var getStartedButtonLabel: Text
-    var titleLabel: Text
+    static public var titleLabel = Text("")
     var descriptionLabel: Text
     var hidePageNumberLabel: Bool
     var introImage: Image
     
     public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
-        self.titleLabel = titleLabel
+        Intro.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
         self.getStartedButtonLabel = getStartedLabel
