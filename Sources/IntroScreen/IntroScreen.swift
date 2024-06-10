@@ -33,71 +33,71 @@ public struct Intro: View {
     }
     
     public var body: some View {
-            VStack(spacing: 0) {
-                HStack {
-                    Group {
-                        Text("\(selectedTab + 1)")
-                        +
-                        Text("/\(introDataArray.count)")
-                            .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 160 / 255, green: 160 / 255, blue: 160 / 255, opacity: 1))
+        VStack(spacing: 0) {
+            HStack {
+                Group {
+                    Text("\(selectedTab + 1)")
+                    +
+                    Text("/\(introDataArray.count)")
+                        .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 160 / 255, green: 160 / 255, blue: 160 / 255, opacity: 1))
+                }
+                .padding(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.trailing)
+                
+                Button(action: {
+                    
+                }, label: {
+                    Text(skipButtonText)
+                })
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing)
+                .foregroundStyle(.black)
+            }
+            
+            ZStack(alignment: .bottom) {
+                
+                TabView(selection: $selectedTab) {
+                    ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
+                        IntroContentView(data: item, imageInyourAsset: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
+                            .tag(index)
                     }
-                    .padding(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.trailing)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .animation(.easeOut(duration: 0.2), value: selectedTab)
+                
+                HStack() {
+                    
+                    if selectedTab > 0 {
+                        Button(action: {
+                            selectedTab -= 1
+                        }, label: {
+                            Text(prevButtonText)
+                        })
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                        
+                        .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 196 / 255, green: 196 / 255, blue: 196 / 255, opacity: 1))
+                    }
+                    
                     
                     Button(action: {
-                        
+                        if selectedTab < introDataArray.count - 1 {
+                            selectedTab += 1
+                        } else {
+                            
+                        }
                     }, label: {
-                        Text(skipButtonText)
+                        selectedTab == introDataArray.count - 1 ? Text(getStartedButtonText) : Text(nextButtonText)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)
-                    .foregroundStyle(.black)
-                }
-                
-                ZStack(alignment: .bottom) {
-                     
-                    TabView(selection: $selectedTab) {
-                        ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                            IntroContentView(data: item, imageInyourAsset: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
-                                .tag(index)
-                        }
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .always))
-                    .indexViewStyle(.page(backgroundDisplayMode: .always))
-                    .animation(.easeOut(duration: 0.2), value: selectedTab)
                     
-                    HStack() {
-                        
-                        if selectedTab > 0 {
-                            Button(action: {
-                                selectedTab -= 1
-                            }, label: {
-                                Text(prevButtonText)
-                            })
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading)
-                           
-                            .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 196 / 255, green: 196 / 255, blue: 196 / 255, opacity: 1))
-                        }
-                       
-                        
-                        Button(action: {
-                            if selectedTab < introDataArray.count - 1 {
-                                selectedTab += 1
-                            } else {
-                               
-                            }
-                        }, label: {
-                            selectedTab == introDataArray.count - 1 ? Text(getStartedButtonText) : Text(nextButtonText)
-                        })
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.trailing)
-                       
-                        .foregroundStyle(Color(.pink))
-                    }
-                    .padding(.bottom, 15)
+                    .foregroundStyle(Color(.pink))
                 }
+                .padding(.bottom, 15)
             }
+        }
     }
 }
