@@ -57,17 +57,15 @@ public struct Intro: View {
                 ZStack(alignment: .bottom) {
                      
                     TabView(selection: $selectedTab) {
-                        ForEach(introDataArray) { item in
+                        ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
                             IntroContentView(data: item, imageInyourAsset: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
-                                .tag(selectedTab)
+                                .tag(index)
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .always))
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
                     .animation(.easeOut(duration: 0.2), value: selectedTab)
-                    .onChange(of: selectedTabStr) {
-                        selectedTab = Int(selectedTabStr) ?? 0
-                    }
+                    
                     HStack() {
                         
                         if selectedTab > 0 {
