@@ -18,28 +18,33 @@ public struct Intro: View {
     var nextButtonLabel: Text
     var skipButtonLabel: Text
     var getStartedButtonLabel: Text
+    var hidePageNumberLabel: Bool
     
-    public init(selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text) {
+    public init(selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
         self.selectedTab = selectedTab
         self.getStartedButtonLabel = getStartedLabel
         self.introDataArray = introDataArray
         self.prevButtonLabel = prevButtonLabel
         self.nextButtonLabel = nextButtonLabel
         self.skipButtonLabel = skipButtonLabel
+        self.hidePageNumberLabel = hidePageNumberLabel
     }
     
     public var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Group {
-                    Text("\(selectedTab + 1)")
-                    +
-                    Text("/\(introDataArray.count)")
-                        .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 160 / 255, green: 160 / 255, blue: 160 / 255, opacity: 1))
+                if !hidePageNumberLabel {
+                    Group {
+                        Text("\(selectedTab + 1)")
+                        +
+                        Text("/\(introDataArray.count)")
+                            .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 160 / 255, green: 160 / 255, blue: 160 / 255, opacity: 1))
+                    }
+                    .padding(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.trailing)
                 }
-                .padding(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.trailing)
+                
                 
                 Button(action: {
                     
