@@ -57,8 +57,8 @@ public struct Intro: View {
                 ZStack(alignment: .bottom) {
                      
                     TabView(selection: $selectedTabStr) {
-                        ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                            IntroContentView(data: item, imageInyourAsset: Image(item.image), titleText: Text(item.title), descText: Text(item.desc))
+                        ForEach(introDataArray) { item in
+                            IntroContentView(data: item, imageInyourAsset: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .always))
@@ -104,6 +104,6 @@ public struct Intro: View {
     }
 }
 
-#Preview {
-    Intro(introDataArray: [IntroData(title: "aaa", desc: "asdasd", image: ""), IntroData(title: "test", desc: "adsads", image: "")])
-}
+//#Preview {
+//    Intro(introDataArray: [IntroData(title: "aaa", desc: "asdasd", image: ""), IntroData(title: "test", desc: "adsads", image: "")])
+//}

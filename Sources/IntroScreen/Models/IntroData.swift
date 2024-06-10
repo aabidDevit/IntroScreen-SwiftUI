@@ -8,14 +8,14 @@
 import Foundation
 public struct IntroData: Identifiable {
     public var id: UUID
-    var title: String
+    var titleText: String
     var desc: String
-    var image: String
+    var imageAssetName: String
     
     public init(id: UUID = UUID(), title: String, desc: String, image: String) {
         self.id = id
-        self.title = title
+        self.titleText = title
         self.desc = desc
-        self.image = image
+        self.imageAssetName = image
     }
 }
