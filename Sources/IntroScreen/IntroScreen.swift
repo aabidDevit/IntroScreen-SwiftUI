@@ -56,9 +56,10 @@ public struct Intro: View {
                 
                 ZStack(alignment: .bottom) {
                      
-                    TabView(selection: $selectedTabStr) {
+                    TabView(selection: $selectedTab) {
                         ForEach(introDataArray) { item in
                             IntroContentView(data: item, imageInyourAsset: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
+                                .tag(selectedTab)
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .always))
