@@ -15,7 +15,7 @@ extension UIScreen {
    static let screenSize = UIScreen.main.bounds.size
 }
 
-public struct Primary: ViewModifier {
+public struct IntroFont: ViewModifier {
     private let font: Font
     private let foregroundColor: Color
     
@@ -36,8 +36,3 @@ public struct Primary: ViewModifier {
     }
 }
 
-public extension View {
-    func customFont(font: Font, foregroundColor: Color) -> some View {
-        ModifiedContent(content: self, modifier: Primary(font: font, foregroundColor: foregroundColor))
-    }
-}
