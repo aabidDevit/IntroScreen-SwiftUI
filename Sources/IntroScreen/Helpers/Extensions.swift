@@ -15,7 +15,7 @@ extension UIScreen {
    static let screenSize = UIScreen.main.bounds.size
 }
 
-struct Primary: ViewModifier {
+public struct Primary: ViewModifier {
     private let font: Font
     private let foregroundColor: Color
     
