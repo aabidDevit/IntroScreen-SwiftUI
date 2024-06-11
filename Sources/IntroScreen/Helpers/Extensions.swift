@@ -36,7 +36,7 @@ struct Primary: ViewModifier {
     }
 }
 
-extension Text {
+public extension View {
     func customFont(font: Font, foregroundColor: Color) -> some View {
         ModifiedContent(content: self, modifier: Primary(font: font, foregroundColor: foregroundColor))
     }
