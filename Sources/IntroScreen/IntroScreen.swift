@@ -18,13 +18,13 @@ public struct Intro: View {
     var nextButtonLabel: Text
     var skipButtonLabel: Text
     var getStartedButtonLabel: Text
-    static public var titleLabel: Text?
+    var titleLabel: Text
     var descriptionLabel: Text
     var hidePageNumberLabel: Bool
     var introImage: Image
     
     public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
-        Intro.titleLabel = titleLabel
+        self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
         self.getStartedButtonLabel = getStartedLabel
@@ -66,7 +66,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: introImage, titleText: Intro.titleLabel ?? Text(""), descText: descriptionLabel)
+                        IntroContentView(data: item, image: introImage, titleText: titleLabel, descText: descriptionLabel)
                             .tag(index)
                     }
                 }
