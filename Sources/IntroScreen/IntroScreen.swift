@@ -23,8 +23,8 @@ public struct Intro: View {
     var hidePageNumberLabel: Bool
     var introImage: Image
     
-    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
-        self.titleLabel = titleLabel
+    public init(introImage: Image, titleLabel: some View, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
+        self.titleLabel = titleLabel as? Text ?? Text("")
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
         self.getStartedButtonLabel = getStartedLabel
