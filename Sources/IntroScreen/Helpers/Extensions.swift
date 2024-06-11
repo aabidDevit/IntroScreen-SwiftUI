@@ -19,12 +19,12 @@ public struct IntroFont: ViewModifier {
     private let font: Font
     private let foregroundColor: Color
     
-    init(size: CGFloat, foregroundColor: Color) {
+    public init(size: CGFloat, foregroundColor: Color) {
         self.font = .system(size: UIFontMetrics.default.scaledValue(for: size))
         self.foregroundColor = foregroundColor
     }
 
-    init(font: Font, foregroundColor: Color) {
+    public init(font: Font, foregroundColor: Color) {
         self.font = font
         self.foregroundColor = foregroundColor
     }
