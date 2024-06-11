@@ -18,7 +18,7 @@ public struct Intro: View {
     var nextButtonLabel: Text
     var skipButtonLabel: Text
     var getStartedButtonLabel: Text
-    var titleLabel: Text
+    public var titleLabel: Text
     var descriptionLabel: Text
     var hidePageNumberLabel: Bool
     var introImage: Image
