@@ -30,7 +30,7 @@ public struct IntroFonts {
     let nextButtonFont: Font?
     let pageCountFont: Font?
     
-    public init(titleFont: Font?, descFont: Font?, skipButtonFont: Font?, prevButtonFont: Font?, nextButtonFont: Font?, pageCountFont: Font?) {
+    public init(titleFont: Font? = nil, descFont: Font? = nil, skipButtonFont: Font? = nil, prevButtonFont: Font? = nil, nextButtonFont: Font? = nil, pageCountFont: Font? = nil) {
         self.titleFont = titleFont
         self.descFont = descFont
         self.skipButtonFont = skipButtonFont
