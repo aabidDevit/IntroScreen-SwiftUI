@@ -23,5 +23,5 @@ public struct IntroData: Identifiable {
 }
 
 public struct IntroFonts {
-    private let titleFont: Font?
+    let titleFont: Font?
 }
