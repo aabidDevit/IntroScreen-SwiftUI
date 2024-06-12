@@ -25,6 +25,7 @@ public struct Intro: View {
     var introImage: Image
     var skipButtonAction: ButtonAction
     var getStartedButtonAction: ButtonAction
+    @State public var titleFont: Font?
     
     public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction) {
         self.titleLabel = titleLabel
@@ -71,7 +72,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: introImage, titleText: titleLabel, descText: descriptionLabel)
+                        IntroContentView(data: item, image: introImage, titleText: titleLabel.updateText(item.titleText).font(titleFont), descText: descriptionLabel)
                             .tag(index)
                     }
                 }

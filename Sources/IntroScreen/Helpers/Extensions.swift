@@ -15,3 +15,8 @@ extension UIScreen {
    static let screenSize = UIScreen.main.bounds.size
 }
 
+extension Text {
+    public func updateText(_ text: String) -> Text {
+        return Text(text)
+    }
+}
