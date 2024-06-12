@@ -9,6 +9,7 @@
 
 import SwiftUI
 
+public typealias buttonAction = (() -> ())?
 @available(macOS 10.15, *)
 public struct Intro: View {
     
@@ -18,13 +19,15 @@ public struct Intro: View {
     var nextButtonLabel: Text
     var skipButtonLabel: Text
     var getStartedButtonLabel: Text
-    public var titleLabel: Text
+    var titleLabel: Text
     var descriptionLabel: Text
     var hidePageNumberLabel: Bool
     var introImage: Image
+    var skipButtonAction: buttonAction
+    var getStartedButtonAction: buttonAction
     
-    public init(introImage: Image, titleLabel: some View, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false) {
-        self.titleLabel = titleLabel as? Text ?? Text("")
+    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonAction: buttonAction, getStartedButtonAction: buttonAction) {
+        self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
         self.getStartedButtonLabel = getStartedLabel
@@ -34,6 +37,8 @@ public struct Intro: View {
         self.skipButtonLabel = skipButtonLabel
         self.hidePageNumberLabel = hidePageNumberLabel
         self.introImage = introImage
+        self.skipButtonAction = skipButtonAction
+        self.getStartedButtonAction = getStartedButtonAction
     }
     
     public var body: some View {
@@ -53,7 +58,7 @@ public struct Intro: View {
                 
                 
                 Button(action: {
-                    
+                    skipButtonAction?()
                 }, label: {
                     skipButtonLabel
                 })
@@ -91,7 +96,7 @@ public struct Intro: View {
                         if selectedTab < introDataArray.count - 1 {
                             selectedTab += 1
                         } else {
-                            
+                            getStartedButtonAction?()
                         }
                     }, label: {
                         selectedTab == introDataArray.count - 1 ? getStartedButtonLabel : nextButtonLabel

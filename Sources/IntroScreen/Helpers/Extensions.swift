@@ -15,24 +15,3 @@ extension UIScreen {
    static let screenSize = UIScreen.main.bounds.size
 }
 
-public struct IntroFont: ViewModifier {
-    private let font: Font
-    private let foregroundColor: Color
-    
-    public init(size: CGFloat, foregroundColor: Color) {
-        self.font = .system(size: UIFontMetrics.default.scaledValue(for: size))
-        self.foregroundColor = foregroundColor
-    }
-
-    public init(font: Font, foregroundColor: Color) {
-        self.font = font
-        self.foregroundColor = foregroundColor
-    }
-
-    public func body(content: Content) -> some View {
-        content
-            .font(font)
-            .foregroundColor(foregroundColor)
-    }
-}
-
