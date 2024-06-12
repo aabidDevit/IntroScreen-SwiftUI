@@ -38,5 +38,5 @@ struct IntroContentView: View {
 }
 
 #Preview {
-    IntroContentView(data:IntroData(title: "Test", desc: "Desc", image: ""), image: Image(""), titleText: Text(""), descText: Text(""))
+    IntroContentView(data:IntroData(title: "Test", desc: "Desc", imageInAsset: ""), image: Image(""), titleText: Text(""), descText: Text(""))
 }
