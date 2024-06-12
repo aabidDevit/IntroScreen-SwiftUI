@@ -10,10 +10,10 @@ https://github.com/aabidDevit/IntroScreen
 -> Add package IntroScreen in your xcode
 -> Import IntroScreen
 
+```swift
 import SwiftUI
 import IntroScreen
 
-```swift
 let introData = [
     IntroData(title: "This is title", desc: "This is Description", image: "twinlake"),
     IntroData(title: "This is title", desc: "This is Description", image: "twinlake"),
@@ -29,8 +29,6 @@ struct ContentView: View {
             // Get Started Button Tap Event
             print("called get started")
         }
-
-
     }
 }
 ```
