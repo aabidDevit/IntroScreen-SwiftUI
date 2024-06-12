@@ -14,20 +14,20 @@ public typealias ButtonAction = (() -> ())?
 public struct Intro: View {
     
     @State private var selectedTab = 0
-    var introDataArray: [IntroData]
-    var prevButtonLabel: Text
-    var nextButtonLabel: Text
-    var skipButtonLabel: Text
-    var getStartedButtonLabel: Text
-    var titleLabel: Text
-    var descriptionLabel: Text
-    var hidePageNumberLabel: Bool
-    var introImage: Image
-    var skipButtonAction: ButtonAction
-    var getStartedButtonAction: ButtonAction
-    @State public var titleFont: Font?
+    private let introDataArray: [IntroData]
+    private let prevButtonLabel: Text
+    private let nextButtonLabel: Text
+    private let skipButtonLabel: Text
+    private let getStartedButtonLabel: Text
+    private let titleLabel: Text
+    private let descriptionLabel: Text
+    private let hidePageNumberLabel: Bool
+    private let introImage: Image
+    private let skipButtonAction: ButtonAction
+    private let getStartedButtonAction: ButtonAction
+    private let titleFont: Font?
     
-    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction) {
+    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, titleFont: Font?) {
         self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
@@ -40,6 +40,7 @@ public struct Intro: View {
         self.introImage = introImage
         self.skipButtonAction = skipButtonAction
         self.getStartedButtonAction = getStartedButtonAction
+        self.titleFont = titleFont
     }
     
     public var body: some View {
