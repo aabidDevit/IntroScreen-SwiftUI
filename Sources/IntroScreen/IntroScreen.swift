@@ -100,7 +100,7 @@ public struct Intro: View {
                             getStartedButtonAction?()
                         }
                     }, label: {
-                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introTextStyle?.nextTextStyle?.textFont) : Text(nextText).font(introTextStyle?.nextTextStyle?.textFont).foregroundStyle(introTextStyle?.nextTextStyle?.textColor ?? .black)
+                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introTextStyle?.nextTextStyle?.textFont).foregroundStyle(introTextStyle?.nextTextStyle?.textColor ?? .black) : Text(nextText).font(introTextStyle?.nextTextStyle?.textFont).foregroundStyle(introTextStyle?.nextTextStyle?.textColor ?? .black)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)

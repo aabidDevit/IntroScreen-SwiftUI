@@ -45,7 +45,7 @@ public struct Style {
     public let textFont: Font
     public let textColor: Color
     
-    public init(textFont: Font = Font.headline, textColor: Color = Color.black) {
+    public init(textFont: Font = Font.system(size: 14, weight: .medium), textColor: Color = Color.black) {
         self.textFont = textFont
         self.textColor = textColor
     }
