@@ -4,6 +4,7 @@
 https://github.com/aabidDevit/IntroScreen
 
 ### Preview
+![ezgif com-video-to-gif-converter (3)](https://github.com/aabidDevit/IntroScreen-SwiftUI/assets/84720808/0272feee-5c76-406d-8097-d4f246986f01)
 
 ### How to use?
 -> Add package [IntroScreen](https://github.com/aabidDevit/IntroScreen) in your xcode <br>
