@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-public typealias buttonAction = (() -> ())?
+public typealias ButtonAction = (() -> ())?
 @available(macOS 10.15, *)
 public struct Intro: View {
     
@@ -23,10 +23,10 @@ public struct Intro: View {
     var descriptionLabel: Text
     var hidePageNumberLabel: Bool
     var introImage: Image
-    var skipButtonAction: buttonAction
-    var getStartedButtonAction: buttonAction
+    var skipButtonAction: ButtonAction
+    var getStartedButtonAction: ButtonAction
     
-    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonAction: buttonAction, getStartedButtonAction: buttonAction) {
+    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction) {
         self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.selectedTab = selectedTab
