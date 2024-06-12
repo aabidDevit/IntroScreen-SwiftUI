@@ -6,7 +6,31 @@ https://github.com/aabidDevit/IntroScreen
 # Preview
 ![ezgif com-video-to-gif-converter](https://github.com/aabidDevit/IntroScreen/assets/84720808/b3b6a176-3774-4713-81f0-f36b0010baea)
 
-# How to implement?
+# How to use?
 -> Add package IntroScreen in your xcode
 -> Import IntroScreen
-![Screenshot 2024-06-11 at 11 42 21 AM](https://github.com/aabidDevit/IntroScreen-SwiftUI/assets/84720808/1485fbd3-f598-4646-81f3-d0d6a0708ac0)
+
+import SwiftUI
+import IntroScreen
+
+```swift
+let introData = [
+    IntroData(title: "This is title", desc: "This is Description", image: "twinlake"),
+    IntroData(title: "This is title", desc: "This is Description", image: "twinlake"),
+    IntroData(title: "This is title", desc: "This is Description", image: "twinlake")
+]
+
+struct ContentView: View {
+    var body: some View {
+        Intro(introImage: Image("twinlake"), titleLabel: Text("Title"), descriptionLabel: Text("Desc"), getStartedLabel: Text("Get Started"), introDataArray: introData, prevButtonLabel: Text("Prev"), nextButtonLabel: Text("Next"), skipButtonLabel: Text("Skip")) {
+            // Skip Button Tap Event
+            print("called skip")
+        } getStartedButtonTapEvent: {
+            // Get Started Button Tap Event
+            print("called get started")
+        }
+
+
+    }
+}
+```
