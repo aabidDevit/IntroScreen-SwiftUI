@@ -14,11 +14,11 @@ public struct IntroData: Identifiable {
     public var desc: String
     public var imageAssetName: String
     
-    public init(id: UUID = UUID(), title: String, desc: String, image: String) {
+    public init(id: UUID = UUID(), title: String, desc: String, imageInAsset: String) {
         self.id = id
         self.titleText = title
         self.desc = desc
-        self.imageAssetName = image
+        self.imageAssetName = imageInAsset
     }
 }
 
