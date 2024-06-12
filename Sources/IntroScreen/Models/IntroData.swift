@@ -24,20 +24,20 @@ public struct IntroData: Identifiable {
 
 public struct IntroText {
     
-    let titleText: Style?
-    let descText: Style?
-    let skipText: Style?
-    let prevText: Style?
-    let nextText: Style?
-    let pageCountText: Style?
+    let titleTextStyle: Style?
+    let descTextStyle: Style?
+    let skipTextStyle: Style?
+    let prevTextStyle: Style?
+    let nextTextStyle: Style?
+    let pageCountTextStyle: Style?
     
-    public init(titleText: Style, descText: Style? = nil, skipText: Style? = nil, prevText: Style? = nil, nextText: Style? = nil, pageCountText: Style? = nil) {
-        self.titleText = titleText
-        self.descText = descText
-        self.skipText = skipText
-        self.prevText = prevText
-        self.nextText = nextText
-        self.pageCountText = pageCountText
+    public init(titleTextStyle: Style, descTextStyle: Style? = nil, skipTextStyle: Style? = nil, prevTextStyle: Style? = nil, nextTextStyle: Style? = nil, pageCountTextStyle: Style? = nil) {
+        self.titleTextStyle = titleTextStyle
+        self.descTextStyle = descTextStyle
+        self.skipTextStyle = skipTextStyle
+        self.prevTextStyle = prevTextStyle
+        self.nextTextStyle = nextTextStyle
+        self.pageCountTextStyle = pageCountTextStyle
     }
 }
 
