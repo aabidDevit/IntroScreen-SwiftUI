@@ -22,7 +22,7 @@ public struct IntroData: Identifiable {
     }
 }
 
-public struct IntroText {
+public struct IntroTextStyle {
     
     let titleTextStyle: Style?
     let descTextStyle: Style?
@@ -31,7 +31,7 @@ public struct IntroText {
     let nextTextStyle: Style?
     let pageCountTextStyle: Style?
     
-    public init(titleTextStyle: Style, descTextStyle: Style? = nil, skipTextStyle: Style? = nil, prevTextStyle: Style? = nil, nextTextStyle: Style? = nil, pageCountTextStyle: Style? = nil) {
+    public init(titleTextStyle: Style?, descTextStyle: Style? = nil, skipTextStyle: Style? = nil, prevTextStyle: Style? = nil, nextTextStyle: Style? = nil, pageCountTextStyle: Style? = nil) {
         self.titleTextStyle = titleTextStyle
         self.descTextStyle = descTextStyle
         self.skipTextStyle = skipTextStyle

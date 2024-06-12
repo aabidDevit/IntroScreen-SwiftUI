@@ -22,9 +22,9 @@ public struct Intro: View {
     private let hidePageNumberLabel: Bool
     private let skipButtonAction: ButtonAction
     private let getStartedButtonAction: ButtonAction
-    private let introText: IntroText?
+    private let introTextStyle: IntroTextStyle?
     
-    public init(introDataArray: [IntroData], getStartedText: String = "Get Started", prevText: String = "Prev", nextText: String = "Next", skipText: String = "Skip", hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, introText: IntroText?) {
+    public init(introDataArray: [IntroData], getStartedText: String = "Get Started", prevText: String = "Prev", nextText: String = "Next", skipText: String = "Skip", hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, introTextStyle: IntroTextStyle?) {
         self.getStartedText = getStartedText
         self.introDataArray = introDataArray
         self.prevText = prevText
@@ -33,7 +33,7 @@ public struct Intro: View {
         self.hidePageNumberLabel = hidePageNumberLabel
         self.skipButtonAction = skipButtonAction
         self.getStartedButtonAction = getStartedButtonAction
-        self.introText = introText
+        self.introTextStyle = introTextStyle
     }
     
     public var body: some View {
@@ -49,8 +49,8 @@ public struct Intro: View {
                     .padding(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.trailing)
-                    .font(introText?.pageCountTextStyle?.textFont)
-                    .foregroundStyle(introText?.pageCountTextStyle?.textColor ?? .black)
+                    .font(introTextStyle?.pageCountTextStyle?.textFont)
+                    .foregroundStyle(introTextStyle?.pageCountTextStyle?.textColor ?? .black)
                 }
                 
                 
@@ -58,8 +58,8 @@ public struct Intro: View {
                     skipButtonAction?()
                 }, label: {
                     Text(skipText)
-                        .font(introText?.skipTextStyle?.textFont)
-                        .foregroundStyle(introText?.skipTextStyle?.textColor ?? .black)
+                        .font(introTextStyle?.skipTextStyle?.textFont)
+                        .foregroundStyle(introTextStyle?.skipTextStyle?.textColor ?? .black)
                 })
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing)
@@ -70,7 +70,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introText?.titleTextStyle?.textFont).foregroundStyle(introText?.titleTextStyle?.textColor ?? .black), descText: Text(item.desc).font(introText?.descTextStyle?.textFont).foregroundStyle(introText?.descTextStyle?.textColor ?? .black))
+                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introTextStyle?.titleTextStyle?.textFont).foregroundStyle(introTextStyle?.titleTextStyle?.textColor ?? .black), descText: Text(item.desc).font(introTextStyle?.descTextStyle?.textFont).foregroundStyle(introTextStyle?.descTextStyle?.textColor ?? .black))
                             .tag(index)
                     }
                 }
@@ -85,8 +85,8 @@ public struct Intro: View {
                             selectedTab -= 1
                         }, label: {
                             Text(prevText)
-                                .font(introText?.prevTextStyle?.textFont)
-                                .foregroundStyle(introText?.prevTextStyle?.textColor ?? .black)
+                                .font(introTextStyle?.prevTextStyle?.textFont)
+                                .foregroundStyle(introTextStyle?.prevTextStyle?.textColor ?? .black)
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
@@ -100,7 +100,7 @@ public struct Intro: View {
                             getStartedButtonAction?()
                         }
                     }, label: {
-                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introText?.nextTextStyle?.textFont) : Text(nextText).font(introText?.nextTextStyle?.textFont).foregroundStyle(introText?.nextTextStyle?.textColor ?? .black)
+                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introTextStyle?.nextTextStyle?.textFont) : Text(nextText).font(introTextStyle?.nextTextStyle?.textFont).foregroundStyle(introTextStyle?.nextTextStyle?.textColor ?? .black)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)
