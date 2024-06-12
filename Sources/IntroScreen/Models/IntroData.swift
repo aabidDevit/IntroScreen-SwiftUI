@@ -25,19 +25,19 @@ public struct IntroData: Identifiable {
 public struct IntroText {
     
     let titleText: Style?
-    let descFont: Style?
-    let skipButtonFont: Style?
-    let prevButtonFont: Style?
-    let nextButtonFont: Style?
-    let pageCountFont: Style?
+    let descText: Style?
+    let skipText: Style?
+    let prevText: Style?
+    let nextText: Style?
+    let pageCountText: Style?
     
-    public init(titleText: Style, descFont: Style? = nil, skipButtonFont: Style? = nil, prevButtonFont: Style? = nil, nextButtonFont: Style? = nil, pageCountFont: Style? = nil) {
+    public init(titleText: Style, descText: Style? = nil, skipText: Style? = nil, prevText: Style? = nil, nextText: Style? = nil, pageCountText: Style? = nil) {
         self.titleText = titleText
-        self.descFont = descFont
-        self.skipButtonFont = skipButtonFont
-        self.prevButtonFont = prevButtonFont
-        self.nextButtonFont = nextButtonFont
-        self.pageCountFont = pageCountFont
+        self.descText = descText
+        self.skipText = skipText
+        self.prevText = prevText
+        self.nextText = nextText
+        self.pageCountText = pageCountText
     }
 }
 
