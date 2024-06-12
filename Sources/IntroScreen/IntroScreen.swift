@@ -44,7 +44,6 @@ public struct Intro: View {
                         Text("\(selectedTab + 1)")
                         +
                         Text("/\(introDataArray.count)")
-                            .foregroundStyle(Color(Color.RGBColorSpace.sRGB, red: 160 / 255, green: 160 / 255, blue: 160 / 255, opacity: 1))
                     }
                     .padding(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
