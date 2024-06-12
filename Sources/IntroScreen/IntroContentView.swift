@@ -9,7 +9,6 @@ import SwiftUI
 
 struct IntroContentView: View {
     
-    var data: IntroData
     let image: Image
     let titleText: Text
     let descText: Text
@@ -38,5 +37,5 @@ struct IntroContentView: View {
 }
 
 #Preview {
-    IntroContentView(data:IntroData(title: "Test", desc: "Desc", imageInAsset: ""), image: Image(""), titleText: Text(""), descText: Text(""))
+    IntroContentView(image: Image(""), titleText: Text(""), descText: Text(""))
 }
