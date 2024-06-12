@@ -23,15 +23,16 @@ public struct IntroData: Identifiable {
 }
 
 public struct IntroFonts {
-    let titleFont: Font?
+    
+    let titleStyle: TextStyle?
     let descFont: Font?
     let skipButtonFont: Font?
     let prevButtonFont: Font?
     let nextButtonFont: Font?
     let pageCountFont: Font?
     
-    public init(titleFont: Font? = nil, descFont: Font? = nil, skipButtonFont: Font? = nil, prevButtonFont: Font? = nil, nextButtonFont: Font? = nil, pageCountFont: Font? = nil) {
-        self.titleFont = titleFont
+    public init(titleStyle: TextStyle? = TextStyle(Font.largeTitle, Color.black), descFont: Font? = nil, skipButtonFont: Font? = nil, prevButtonFont: Font? = nil, nextButtonFont: Font? = nil, pageCountFont: Font? = nil) {
+        self.titleStyle = titleStyle
         self.descFont = descFont
         self.skipButtonFont = skipButtonFont
         self.prevButtonFont = prevButtonFont
@@ -39,3 +40,5 @@ public struct IntroFonts {
         self.pageCountFont = pageCountFont
     }
 }
+
+public typealias TextStyle = (textFont: Font, textColor: Color)
