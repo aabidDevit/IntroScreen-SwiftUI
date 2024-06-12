@@ -49,6 +49,7 @@ public struct Intro: View {
                     .padding(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.trailing)
+                    .font(introFonts?.pageCountFont)
                 }
                 
                 
@@ -56,6 +57,7 @@ public struct Intro: View {
                     skipButtonAction?()
                 }, label: {
                     Text(skipText)
+                        .font(introFonts?.skipButtonFont)
                 })
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing)
@@ -66,7 +68,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introFonts?.titleFont), descText: Text(item.desc))
+                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introFonts?.titleFont), descText: Text(item.desc).font(introFonts?.descFont))
                             .tag(index)
                     }
                 }
@@ -81,6 +83,7 @@ public struct Intro: View {
                             selectedTab -= 1
                         }, label: {
                             Text(prevText)
+                                .font(introFonts?.prevButtonFont)
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
@@ -94,7 +97,7 @@ public struct Intro: View {
                             getStartedButtonAction?()
                         }
                     }, label: {
-                        selectedTab == introDataArray.count - 1 ? Text(getStartedText) : Text(nextText)
+                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introFonts?.nextButtonFont) : Text(nextText).font(introFonts?.nextButtonFont)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)

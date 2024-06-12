@@ -24,8 +24,18 @@ public struct IntroData: Identifiable {
 
 public struct IntroFonts {
     let titleFont: Font?
+    let descFont: Font?
+    let skipButtonFont: Font?
+    let prevButtonFont: Font?
+    let nextButtonFont: Font?
+    let pageCountFont: Font?
     
-    public init(titleFont: Font?) {
+    public init(titleFont: Font?, descFont: Font?, skipButtonFont: Font?, prevButtonFont: Font?, nextButtonFont: Font?, pageCountFont: Font?) {
         self.titleFont = titleFont
+        self.descFont = descFont
+        self.skipButtonFont = skipButtonFont
+        self.prevButtonFont = prevButtonFont
+        self.nextButtonFont = nextButtonFont
+        self.pageCountFont = pageCountFont
     }
 }
