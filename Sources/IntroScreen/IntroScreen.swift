@@ -22,9 +22,9 @@ public struct Intro: View {
     private let hidePageNumberLabel: Bool
     private let skipButtonAction: ButtonAction
     private let getStartedButtonAction: ButtonAction
-    private let introFonts: IntroFonts?
+    private let introText: IntroText?
     
-    public init(introDataArray: [IntroData], getStartedText: String = "Get Started", prevText: String = "Prev", nextText: String = "Next", skipText: String = "Skip", hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, introFonts: IntroFonts?) {
+    public init(introDataArray: [IntroData], getStartedText: String = "Get Started", prevText: String = "Prev", nextText: String = "Next", skipText: String = "Skip", hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, introText: IntroText?) {
         self.getStartedText = getStartedText
         self.introDataArray = introDataArray
         self.prevText = prevText
@@ -33,7 +33,7 @@ public struct Intro: View {
         self.hidePageNumberLabel = hidePageNumberLabel
         self.skipButtonAction = skipButtonAction
         self.getStartedButtonAction = getStartedButtonAction
-        self.introFonts = introFonts
+        self.introText = introText
     }
     
     public var body: some View {
@@ -49,7 +49,7 @@ public struct Intro: View {
                     .padding(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.trailing)
-                    .font(introFonts?.pageCountFont)
+                    .font(introText?.pageCountFont?.textFont)
                 }
                 
                 
@@ -57,7 +57,7 @@ public struct Intro: View {
                     skipButtonAction?()
                 }, label: {
                     Text(skipText)
-                        .font(introFonts?.skipButtonFont)
+                        .font(introText?.skipButtonFont?.textFont)
                 })
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing)
@@ -68,7 +68,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introFonts?.titleStyle?.textFont), descText: Text(item.desc).font(introFonts?.descFont))
+                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introText?.titleText?.textFont), descText: Text(item.desc).font(introText?.descFont?.textFont))
                             .tag(index)
                     }
                 }
@@ -83,7 +83,7 @@ public struct Intro: View {
                             selectedTab -= 1
                         }, label: {
                             Text(prevText)
-                                .font(introFonts?.prevButtonFont)
+                                .font(introText?.prevButtonFont?.textFont)
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
@@ -97,7 +97,7 @@ public struct Intro: View {
                             getStartedButtonAction?()
                         }
                     }, label: {
-                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introFonts?.nextButtonFont) : Text(nextText).font(introFonts?.nextButtonFont)
+                        selectedTab == introDataArray.count - 1 ? Text(getStartedText).font(introText?.nextButtonFont?.textFont) : Text(nextText).font(introText?.nextButtonFont?.textFont)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)
