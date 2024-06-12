@@ -66,7 +66,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
+                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText).font(introFonts?.titleFont), descText: Text(item.desc))
                             .tag(index)
                     }
                 }
