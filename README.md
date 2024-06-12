@@ -15,21 +15,19 @@ https://github.com/aabidDevit/IntroScreen
 import SwiftUI
 import IntroScreen
 
-let introData = [
-    IntroData(title: "This is title", desc: "This is Description", image: "twinlake"),
-    IntroData(title: "This is title", desc: "This is Description", image: "twinlake"),
-    IntroData(title: "This is title", desc: "This is Description", image: "twinlake")
+let introData: [IntroData] = [
+    IntroData(title: "Choose Products", desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.", image: "twinlake"),
+    IntroData(title: "Make Payment", desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.", image: "twinlake"),
+    IntroData(title: "Get Your Order", desc: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.", image: "twinlake")
 ]
 
 struct ContentView: View {
     var body: some View {
-        Intro(introImage: Image("twinlake"), titleLabel: Text("Title"), descriptionLabel: Text("Desc"), getStartedLabel: Text("Get Started"), introDataArray: introData, prevButtonLabel: Text("Prev"), nextButtonLabel: Text("Next"), skipButtonLabel: Text("Skip")) {
-            // Skip Button Tap Event
-            print("called skip")
-        } getStartedButtonTapEvent: {
-            // Get Started Button Tap Event
-            print("called get started")
-        }
+        Intro(introDataArray: introData, skipButtonTapEvent: {
+            
+        }, getStartedButtonTapEvent: {
+            
+        }, introTextStyle: IntroTextStyle(titleTextStyle: .init(textFont: Font.title), descTextStyle: .init(textFont: .system(.title3, weight: .regular)),skipTextStyle: .init(textColor: .pink),  prevTextStyle: .init(textColor: .pink), nextTextStyle: .init(textColor: .pink), pageCountTextStyle: .init(textColor: .pink)))
     }
 }
 ```
