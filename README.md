@@ -1,16 +1,16 @@
-# IntroScreen
+### IntroScreen
 
-# Package URL
+### Package URL
 https://github.com/aabidDevit/IntroScreen
 
-# Preview
+### Preview
 ![ezgif com-video-to-gif-converter](https://github.com/aabidDevit/IntroScreen/assets/84720808/b3b6a176-3774-4713-81f0-f36b0010baea)
 
-# How to use?
+### How to use?
 -> Add package [IntroScreen](https://github.com/aabidDevit/IntroScreen) in your xcode <br>
--> Import IntroScreen
+![ezgif com-video-to-gif-converter (2)](https://github.com/aabidDevit/IntroScreen-SwiftUI/assets/84720808/cbda341c-34c6-4999-8106-efa8b1d40da9)
 
-# Code
+### Code
 ```swift
 import SwiftUI
 import IntroScreen
