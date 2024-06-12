@@ -10,6 +10,7 @@ https://github.com/aabidDevit/IntroScreen
 -> Add package [IntroScreen](https://github.com/aabidDevit/IntroScreen) in your xcode <br>
 -> Import IntroScreen
 
+# Code
 ```swift
 import SwiftUI
 import IntroScreen
