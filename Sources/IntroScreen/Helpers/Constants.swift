@@ -15,6 +15,7 @@ struct K {
     static let baseHeight = 812.0
     
     struct Size {
+        
         static let buttonWidth = (UIScreen.screenWidth * 85) / 100
         static let buttonHeight = 55.0
         
@@ -27,6 +28,5 @@ struct K {
             let percent = (height * 100) / K.baseHeight
             return (percent * UIScreen.screenHeight) / 100
         }
-        
     }
 }

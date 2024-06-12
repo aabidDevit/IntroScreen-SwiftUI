@@ -15,32 +15,25 @@ public struct Intro: View {
     
     @State private var selectedTab = 0
     private let introDataArray: [IntroData]
-    private let prevButtonLabel: Text
-    private let nextButtonLabel: Text
-    private let skipButtonLabel: Text
-    private let getStartedButtonLabel: Text
-    private let titleLabel: Text
-    private let descriptionLabel: Text
+    private let prevText: String
+    private let nextText: String
+    private let skipText: String
+    private let getStartedText: String
     private let hidePageNumberLabel: Bool
-    private let introImage: Image
     private let skipButtonAction: ButtonAction
     private let getStartedButtonAction: ButtonAction
-    private let titleFont: Font?
+    private let introFonts: IntroFonts?
     
-    public init(introImage: Image, titleLabel: Text, descriptionLabel: Text, selectedTab: Int = 0, getStartedLabel: Text, introDataArray: [IntroData], prevButtonLabel: Text, nextButtonLabel: Text, skipButtonLabel: Text, hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, titleFont: Font?) {
-        self.titleLabel = titleLabel
-        self.descriptionLabel = descriptionLabel
-        self.selectedTab = selectedTab
-        self.getStartedButtonLabel = getStartedLabel
+    public init(introDataArray: [IntroData], getStartedText: String = "Get Started", prevText: String = "Prev", nextText: String = "Next", skipText: String = "Skip", hidePageNumberLabel: Bool = false, skipButtonTapEvent skipButtonAction:  ButtonAction, getStartedButtonTapEvent getStartedButtonAction: ButtonAction, introFonts: IntroFonts?) {
+        self.getStartedText = getStartedText
         self.introDataArray = introDataArray
-        self.prevButtonLabel = prevButtonLabel
-        self.nextButtonLabel = nextButtonLabel
-        self.skipButtonLabel = skipButtonLabel
+        self.prevText = prevText
+        self.nextText = nextText
+        self.skipText = skipText
         self.hidePageNumberLabel = hidePageNumberLabel
-        self.introImage = introImage
         self.skipButtonAction = skipButtonAction
         self.getStartedButtonAction = getStartedButtonAction
-        self.titleFont = titleFont
+        self.introFonts = introFonts
     }
     
     public var body: some View {
@@ -62,7 +55,7 @@ public struct Intro: View {
                 Button(action: {
                     skipButtonAction?()
                 }, label: {
-                    skipButtonLabel
+                    Text(skipText)
                 })
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing)
@@ -73,7 +66,7 @@ public struct Intro: View {
                 
                 TabView(selection: $selectedTab) {
                     ForEach(Array(introDataArray.enumerated()), id: \.element.id) { index, item in
-                        IntroContentView(data: item, image: introImage, titleText: titleLabel.updateText(item.titleText).font(titleFont), descText: descriptionLabel.updateText(item.desc))
+                        IntroContentView(data: item, image: Image(item.imageAssetName), titleText: Text(item.titleText), descText: Text(item.desc))
                             .tag(index)
                     }
                 }
@@ -87,7 +80,7 @@ public struct Intro: View {
                         Button(action: {
                             selectedTab -= 1
                         }, label: {
-                            prevButtonLabel
+                            Text(prevText)
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
@@ -101,7 +94,7 @@ public struct Intro: View {
                             getStartedButtonAction?()
                         }
                     }, label: {
-                        selectedTab == introDataArray.count - 1 ? getStartedButtonLabel : nextButtonLabel
+                        selectedTab == introDataArray.count - 1 ? Text(getStartedText) : Text(nextText)
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing)

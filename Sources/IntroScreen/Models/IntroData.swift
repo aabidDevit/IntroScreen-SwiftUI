@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
 public struct IntroData: Identifiable {
     public var id: UUID
     public var titleText: String
@@ -18,4 +20,8 @@ public struct IntroData: Identifiable {
         self.desc = desc
         self.imageAssetName = image
     }
+}
+
+public struct IntroFonts {
+    private let titleFont: Font?
 }
